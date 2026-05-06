@@ -63,12 +63,13 @@ function showQuiz() {
                             b.classList.add("wrong");
                         }
 
-                        b.classList.remove("unpressed"); // 押されたボタンから「unpressed」を削除
+                        b.classList.remove("unpressed");
                     }
 
                     // 正解のボタンを緑にする
                     if (b.textContent === q.choices[q.correct]) {
                         b.classList.add("correct");
+                        b.classList.remove("unpressed");
                     }
                 })
 
