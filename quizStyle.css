@@ -9,7 +9,7 @@ button {
     border-radius: 10px;
     font-size: 1rem;
     color: #000;
-    background-color: #ccc;
+    background-color: #eee;
     padding: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -19,14 +19,14 @@ button {
 }
 
 button:active {
-    background-color: #aaa;
+    background-color: #ddd;
 }
 
 button:hover:not(:disabled) {
     box-shadow: 0 0 2px #333;
 }
 
-button:disabled {
+button.unpressed:disabled {
     background-color: #777;
 }
 

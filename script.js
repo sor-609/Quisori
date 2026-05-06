@@ -51,7 +51,8 @@ function showQuiz() {
                 const buttons = quizDisplayElement.querySelectorAll("button");
 
                 buttons.forEach(b => {
-                    b.disabled = true; // 他のボタンを押せなくする
+                    b.disabled = true; // ボタンを押せなくする
+                    b.classList.add("unpressed");
 
                     // 押したボタンを緑or赤にする
                     if (b === btn) {
@@ -61,6 +62,8 @@ function showQuiz() {
                         } else {
                             b.classList.add("wrong");
                         }
+
+                        b.classList.remove("unpressed"); // 押されたボタンから「unpressed」を削除
                     }
 
                     // 正解のボタンを緑にする
