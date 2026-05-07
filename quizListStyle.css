@@ -4,3 +4,12 @@ body {
     font-size: 100%;
 }
 
+#quiz-list a {
+    border: auto solid #ccc;
+    border-width: 1 0 0 0;
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+    cursor: pointer;
+}

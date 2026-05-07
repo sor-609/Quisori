@@ -10,7 +10,7 @@ let score = 0;
 const params = new URLSearchParams(window.location.search);
 const quizId = Number(params.get("id"));
 
-const quiz = quizzes[quizId];
+const quiz = quizzes[a => a.id === quizId];
 const questionsData = quiz.questions;
 
 quizTitleElement.textContent = quiz.title;
