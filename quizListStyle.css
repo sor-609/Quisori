@@ -7,13 +7,14 @@ body {
 #quiz-list div {
     border: solid #bbb;
     border-width: 1px 0;
-    padding: 10px 2rem;
+    padding: 0 2rem;
     margin: 0 auto;
     width: 90%;
     max-width: 600px;
     cursor: pointer;
     background-color: #fafafa;
     text-align: left;
+    line-height: 1;
 }
 
 #quiz-list div:hover {
