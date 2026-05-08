@@ -12,9 +12,9 @@ body {
     width: 100%;
     max-width: 1000px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #e8e8e8;
 }
 
 #quiz-list div:hover {
-    background-color: #eee;
+    background-color: #e3e3e3;
 }
