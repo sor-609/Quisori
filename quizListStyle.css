@@ -5,13 +5,16 @@ body {
 }
 
 #quiz-list div {
-    border: solid #ccc;
+    border: solid #bbb;
     border-width: 1px 0;
     padding: 10px;
     margin: 0 auto;
     width: 100%;
     max-width: 1000px;
     cursor: pointer;
-    box-shadow: -2px 0 2px #ccc;
-    box-shadow: 2px 0 2px #ccc;
+    background-color: #fff;
+}
+
+#quiz-list div:hover {
+    background-color: #eee;
 }
