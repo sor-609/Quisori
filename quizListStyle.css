@@ -5,11 +5,12 @@ body {
 }
 
 #quiz-list div {
-    border: auto solid #ccc;
     border-width: 1 0 0 0;
+    border: auto solid #ccc;
     padding: 10px;
     margin: 0 auto;
     width: 100%;
     max-width: 1000px;
     cursor: pointer;
+    box-shadow: 0 0 2px #ccc
 }
