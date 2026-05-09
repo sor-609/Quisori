@@ -7,7 +7,7 @@ quizzes.forEach(index => {
     const quizItem = document.createElement("div");
 
     const genresHtml = index.genres
-        .map(genresItem => `<a id="genres" href="index.html?genres=${genresItem}">#${genreNameList[genresItem]}</a>`)
+        .map(genresItem => `<a id="genre" href="index.html?genres=${genresItem}">#${genreNameList[genresItem]}</a>`)
         .join(" , ");
 
     quizItem.innerHTML = `

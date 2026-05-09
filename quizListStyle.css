@@ -8,7 +8,7 @@ body {
     border: solid #bbb;
     border-width: 1px 0;
     padding: 0 2rem;
-    margin: 0 auto 0.5rem;
+    margin: 0 auto;
     width: 90%;
     max-width: 600px;
     cursor: pointer;
@@ -16,9 +16,8 @@ body {
     text-align: left;
     line-height: 1;
     grid-template-areas:
-        "title ."
-        "desc ."
-        "genre .";
+        "title genre"
+        "desc .";
 }
 
 #quiz-list div:hover {
