@@ -6,8 +6,8 @@ quizzes.forEach(index => {
     const item = document.createElement("div");
 
     item.innerHTML = `
-        <h2>${index.title}</h2>
-        <p>${index.description}</p> 
+        <h2 id="title">${index.title}</h2>
+        <p id="desc">${index.description}</p>
     `;
 
     item.onclick = () => {

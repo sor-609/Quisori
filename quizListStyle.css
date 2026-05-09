@@ -15,6 +15,9 @@ body {
     background-color: #fafafa;
     text-align: left;
     line-height: 1;
+    grid-template-areas:
+        "title ."
+        "desc .";
 }
 
 #quiz-list div:hover {
