@@ -1,3 +1,4 @@
+import { genreNames } from './quizData.js';
 import { quizzes } from './quizData.js';
 
 const quizTitleElement = document.getElementById("quiz-title");

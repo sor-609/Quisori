@@ -1,9 +1,15 @@
+const genreNames = {
+    nonGenre: "一般",
+    geography: "地理"
+};
+
 // 上から、クイズID、タイトル、問題情報（問題文、選択肢、答え、解説）。 追加する際は同じフォーマットで下に書く。
 const quizzes = [
     { // quiz
         id: 0,
         title: "高い山クイズ",
-        genres: ["nonSchoolUnit","nonGenre","geography"],
+        genres: ["nonGenre","geography"],
+        isSchoolUnit: false,
         description: "日本・世界のいろいろな高い山についてのクイズ。",
         questions: [ //questionsData
             { // q
@@ -31,4 +37,5 @@ const quizzes = [
     }
 ];
 
+export { genreNames };
 export { quizzes };

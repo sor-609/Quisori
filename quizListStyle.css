@@ -17,7 +17,8 @@ body {
     line-height: 1;
     grid-template-areas:
         "title ."
-        "desc .";
+        "desc ."
+        "genre .";
 }
 
 #quiz-list div:hover {
