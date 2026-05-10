@@ -20,15 +20,15 @@ body {
         "desc .";
 }
 
-#title {
+.title {
     grid-area: title;
 }
 
-#desc {
+.desc {
     grid-area: desc;
 }
 
-#genre {
+.genre {
     grid-area: genre;
 }
 
