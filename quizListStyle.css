@@ -26,8 +26,6 @@ body {
     grid-column: 1;
     grid-row: 1;
     margin-bottom: 0;
-    box-sizing: border-box;
-    border: 1px solid red;
 }
 
 .genre-list {
@@ -38,8 +36,6 @@ body {
     flex-wrap: wrap;
     gap: 0.25rem;
     align-items: center;
-    box-sizing: border-box;
-    border: 1px solid blue;
 }
 
 .genre-list .genre {
@@ -55,8 +51,6 @@ body {
 .desc {
     grid-column: 1 / 3;
     grid-row: 2;
-    box-sizing: border-box;
-    border: 1px solid green;
 }
 
 #quiz-list div:hover {
