@@ -4,7 +4,10 @@ import { quizzes } from './quizData.js';
 const quizList = document.getElementById("quiz-list");
 
 const params = new URLSearchParams(location.search);
-const displayGenre = params.get("genre");
+const displayGenre = String(params.get("genre"));
+console.log(displayGenre);
+const isNonGenre = displayGenre.includes("nonGenre");
+console.log(isNonGenre);
 
 quizzes.forEach(index => {
     if (index.includes(displayGenre) || displayGenre === null) {
