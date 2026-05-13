@@ -8,7 +8,7 @@ const nextBtn = document.getElementById("next-btn");
 let currentQuestion = 0;
 let score = 0;
 
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(location.search);
 const quizId = Number(params.get("id"));
 
 const quiz = quizzes.find(a => a.id === quizId);
