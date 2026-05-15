@@ -4,6 +4,8 @@ const genreNameList = {
 };
 
 // 上から、クイズID、タイトル、問題情報（問題文、選択肢、答え、解説）。 追加する際は同じフォーマットで下に書く。
+// コピペ用：id: ,title: "",genres: [""],isSchoolUnit: ,description: "",
+// questions: [{type: "",question: "",choices: [""],correct: ,explanation: ""}]
 const quizzes = [
     { // quiz
         id: 0,
@@ -15,14 +17,14 @@ const quizzes = [
             { // q
                 type: "select",
                 question: "日本で一番高い山は何？",
-                choices: ["エベレスト", "北岳", "阿蘇山", "富士山"],
+                choices: ["エベレスト","北岳","阿蘇山","富士山"],
                 correct: 3,
                 explanation: "エベレスト：世界一高い山。\n北岳：山梨県にある日本で2番目に高い山。\n阿蘇山：熊本県にある世界最大級のカルデラを持つ活火山。\n富士山：日本で一番高い山。よってこれが正解。"
             },
             {
                 type: "select",
                 question: "富士山がまたがっている都道府県はどことどこ？",
-                choices: ["静岡県と愛知県", "山梨県と静岡県", "長野県と山梨県", "長野県と静岡県"],
+                choices: ["静岡県と愛知県","山梨県と静岡県","長野県と山梨県","長野県と静岡県"],
                 correct: 1,
                 explanation: "富士山は山梨県と静岡県にまたがっている山である。しかし、山頂付近からその東側の約5kmは「県境未定領域」となっているため、山頂はどの県にも属していない。"
             },

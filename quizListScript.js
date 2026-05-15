@@ -9,7 +9,7 @@ const displayGenre = String(params.get("genre"));
 quizzes.forEach(index => {
     const indexGenre = index.genres;
 
-    if (displayGenre === null || indexGenre.includes(displayGenre)) {
+    if (index.isSchoolUnit === true) {
         const quizItem = document.createElement("div");
 
         const genresHtml = index.genres
@@ -29,3 +29,5 @@ quizzes.forEach(index => {
         quizList.appendChild(quizItem);
     }
 });
+
+// index.htmlにdiv追加で非学校単元用のリンクを作る。
