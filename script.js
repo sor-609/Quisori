@@ -1,5 +1,6 @@
 import { genreNameList } from './commonQuizData.js';
-import { quizzes } from './schoolUnitQuizData.js';
+import { commonQuizzes } from './commonQuizData.js';
+import { schoolUnitQuizzes } from './schoolUnitQuizData.js';
 
 const quizTitleElement = document.getElementById("quiz-title");
 const quizDisplayElement = document.getElementById("quiz-display");
@@ -11,7 +12,7 @@ let score = 0;
 const params = new URLSearchParams(location.search);
 const quizId = Number(params.get("id"));
 
-const quiz = quizzes.find(a => a.id === quizId);
+const quiz = schoolUnitQuizzes.find(a => a.id === quizId);
 const questionsData = quiz.questions;
 
 quizTitleElement.textContent = quiz.title;

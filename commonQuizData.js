@@ -11,9 +11,8 @@ const genreNameList = {
 };
 
 // 上から、クイズID、タイトル、問題情報（問題文、選択肢、答え、解説）。 追加する際は同じフォーマットで下に書く。
-// コピペ用：id: ,title: "",genres: [""],isSchoolUnit: ,description: "",
-// questions: [{type: "",question: "",choices: [""],correct: ,explanation: ""}]
-const quizzes = [
+// コピペ用：id: ,title: "",genres: [""],description: "",questions: [{type: "",question: "",choices: [""],correct: ,explanation: ""}]
+const commonQuizzes = [
     { // quiz
         id: 0,
         title: "高い山クイズ",
@@ -46,4 +45,4 @@ const quizzes = [
 ];
 
 export { genreNameList };
-export { quizzes };
+export { commonQuizzes };

@@ -4,11 +4,9 @@ const header = `
 
     <nav>
         <a href="index.html">ホーム</a>
-        <a href="#">クイズ記事</a>
-        <a href="#">お問い合わせ</a>
     </nav>
 </header>
-`;
+`; // <a href="index.html?common">クイズ記事</a> <a href="#">お問い合わせ</a>
 document.getElementById("header").innerHTML = header;
 
 const links = document.querySelectorAll("nav a");
@@ -21,14 +19,15 @@ links.forEach(link => {
 
 
 import { genreNameList } from './commonQuizData.js';
-import { quizzes } from './schoolUnitQuizData.js';
+import { commonQuizzes } from './commonQuizData.js';
+import { schoolUnitQuizzes } from './schoolUnitQuizData.js';
 
 const quizList = document.getElementById("quiz-list");
 
 const params = new URLSearchParams(location.search);
 const displayGenre = params.get("genre");
 
-quizzes.forEach(index => {
+schoolUnitQuizzes.forEach(index => {
     const indexGenre = index.genres;
     console.log(indexGenre,displayGenre);
 
@@ -54,3 +53,4 @@ quizzes.forEach(index => {
 });
 
 // index.htmlにdiv追加で非学校単元用のリンクを作る。
+// 学校単元・非学校単元のリストが別々になっているので、quizzesに合体して偶奇で区別するか、別のリストとしてifで分岐させる。
