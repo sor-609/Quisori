@@ -11,11 +11,16 @@ document.getElementById("header").innerHTML = header;
 
 const links = document.querySelectorAll("nav a");
 
-links.forEach(link => {
-    if (link.href === window.location.href) {
-        link.classList.add("currentPage");
-    }
-});
+if (window.location.href === null) {
+    links[0].classList.add("currentPage");
+}
+else {
+    links.forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add("currentPage");
+        }
+    });
+}
 
 
 import { genreNameList } from './commonQuizData.js';
