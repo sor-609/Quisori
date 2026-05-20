@@ -11,7 +11,7 @@ document.getElementById("header").innerHTML = header;
 
 const links = document.querySelectorAll("nav a");
 
-if (window.location.href === null) {
+if (location.pathname === "/Quisori/") {
     links[0].classList.add("currentPage");
 }
 else {
@@ -21,7 +21,6 @@ else {
         }
     });
 }
-console.log(window.location.href);
 
 import { genreNameList } from './commonQuizData.js';
 import { commonQuizzes } from './commonQuizData.js';
