@@ -21,7 +21,7 @@ else {
         }
     });
 }
-
+console.log(window.location.href);
 
 import { genreNameList } from './commonQuizData.js';
 import { commonQuizzes } from './commonQuizData.js';
@@ -34,7 +34,6 @@ const displayGenre = params.get("genre");
 
 schoolUnitQuizzes.forEach(index => {
     const indexGenre = index.genres;
-    console.log(indexGenre,displayGenre);
 
     if (displayGenre === null || indexGenre.includes(displayGenre)) {
         const quizItem = document.createElement("div");
