@@ -5,6 +5,55 @@ body {
     text-align: center;
     font-family: sans-serif;
     font-size: 100%;
+
+    padding-top: 3rem;
+}
+
+header {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #4ee;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.5rem 2rem;
+    padding-right: 1rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem;
+}
+
+nav a:hover {
+    color: #fa0;
+}
+
+.currentPage {
+    background-color: rgba(200,255,255,0.5);
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 3px solid #fff;
+    border-radius: 2px;
 }
 
 #quiz-display {
