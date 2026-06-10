@@ -36,7 +36,7 @@ function showQuiz() {
 
     // 選択肢ボタン
     if (q.type === "select") {
-        selecting();
+        select();
     }
 
     const explanation = document.createElement("p");
@@ -44,7 +44,7 @@ function showQuiz() {
     quizDisplayElement.appendChild(explanation);
 
     // 「select」方式
-    function selecting() {
+    function select() {
         q.choices.forEach(choice => {
             const btn = document.createElement("button");
             btn.textContent = choice;

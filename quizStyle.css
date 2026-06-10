@@ -7,17 +7,25 @@ body {
     font-size: 100%;
 }
 
+#quiz-display {
+    border: 1px solid #cbb;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 90%;
+    padding: 0;
+    margin: 0 auto 1rem;
+}
+
 button {
+    min-inline-size: 5rem;
     border: 1px solid #555;
     border-radius: 10px;
     font-size: 1rem;
     color: #000;
     background-color: #eee;
     padding: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     margin-bottom: 10px;
-    margin-right: 5px;
+    margin-right: 0.5rem;
     transition: 0.2s;
 }
 
@@ -55,6 +63,7 @@ button.unpressed:disabled {
     text-align: left;
     display: none;
     white-space: pre-wrap;
+    width: 80%;
     max-width: 550px;
     margin: 15px auto;
     padding: 10px;
