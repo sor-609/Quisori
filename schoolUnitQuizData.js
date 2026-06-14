@@ -3,15 +3,15 @@
 const schoolUnitQuizzes = [
     {
         id: 1,
-        title: "式の計算",
-        genres: ["math","HMath"],
+        title: "式の展開",
+        genres: ["math","JHMath"],
         questions: [
             {
                 type: "select",
-                question: "4^0",
-                choices: ["0","1","2"],
-                correct: 1,
-                explanation: "a^0=1である。"
+                question: "2x×(4x+3)=?",
+                choices: ["8x+6","8x²+3","8x²+6x"],
+                correct: 2,
+                explanation: "2x×(4x+3)\n=2x×4x+2x×3\n=8x²+6x"
             }
         ]
     }

@@ -43,7 +43,7 @@ schoolUnitQuizzes.forEach(index => {
 
         quizItem.innerHTML = `
             <h2 class="title">${index.title}</h2>
-            <div class="genre-list">${genresHtml}</div>
+            <!-- <div class="genre-list">${genresHtml}</div> 一般クイズではコメントアウトしない。-->
             <p class="desc" style="display:none;">${index.description}</p>
             `;
 
@@ -56,4 +56,3 @@ schoolUnitQuizzes.forEach(index => {
 });
 
 // index.htmlにdiv追加で非学校単元用のリンクを作る。
-// 学校単元・非学校単元のリストが別々になっているので、quizzesに合体して偶奇で区別するか、別のリストとしてifで分岐させる。

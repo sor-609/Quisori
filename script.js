@@ -55,7 +55,7 @@ function showQuiz() {
 
     // 問題文
     const p = document.createElement("p");
-    p.textContent = `Q${currentQuestion + 1}: ${q.question}`;
+    p.textContent = `${q.question}`;
     quizDisplayElement.appendChild(p);
 
     // 選択肢ボタン
@@ -125,23 +125,27 @@ nextBtn.onclick = () => {
 function showResult() {
     nextBtn.style.display = "none";
 
+    const rank = getRank();
+
     quizDisplayElement.innerHTML = `
         <div class="result-box">
-            <h2>結果</h2>
-            <p class="score">${score} / ${questionsData.length}</p>
-            <p class="message">${getMessage()}</p>
-            <br>
+            <h2 class="result__text--kekka">結果</h2>
+            <p class="result__score">${score} / ${questionsData.length}</p>
+
+            <h2 class="result__text--hyouka">評価</h2>
+            <p class="result__rank rank-${rank}">${rank}</p>
+
             <button onclick="location.reload()">もう一回</button>
-            <button onclick="window.location.href='index.html'">クイズ一覧に戻る</button>
+            <button onclick="window.location.href='index.html'">問題一覧に戻る</button>
         </div>
     `;
 }
 
-// 結果メッセージ
-function getMessage() {
-    if (score === questionsData.length) return "満点！　評価：エベレスト級";
-    if (score === questionsData.length - 1) return "もう一息！　評価：Ｋ２級";
-    if (score >= questionsData.length / 2) return "いい感じ！　評価：富士山級";
-    if (score >= questionsData.length + 1) return "ギリＯＫ！　評価：ウィチプルーフ山級";
-    return "残念！もう一度挑戦しよう！　評価：マリアナ海溝級";
+// 評価表示
+function getRank() {
+    return "C";
+    if (score === questionsData.length) return "S";
+    if (score >= questionsData.length * 0.8) return "A";
+    if (score >= questionsData.length / 2) return "B";
+    return "C";
 }
