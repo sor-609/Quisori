@@ -38,7 +38,6 @@ schoolUnitQuizzes.forEach(index => {
 
     if (isThereIsTopQuiz === false) {
         quizItem.classList.add("top-quiz");
-        console.log(quizItem.className);
         isThereIsTopQuiz = true;
     }
 
