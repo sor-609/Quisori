@@ -30,37 +30,27 @@ const quizList = document.getElementById("quiz-list");
 
 let isThereIsTopQuiz = false;
 const params = new URLSearchParams(location.search);
-const displayGenre = params.get("genre");
 
 schoolUnitQuizzes.forEach(index => {
-    const indexGenre = index.genres;
 
-    if (displayGenre === null || indexGenre.includes(displayGenre)) {
-        const quizItem = document.createElement("div");
-        quizItem.classList.add("quiz-item");
+    const quizItem = document.createElement("div");
+    quizItem.classList.add("quiz-item");
 
-        if (isThereIsTopQuiz === false) {
-            quizItem.classList.add("top-quiz");
-            console.log(quizItem.className);
-            isThereIsTopQuiz = true;
-        }
-
-        const genresHtml = index.genres
-            .map(genresItem => `<a class="genre" href="index.html?genre=${genresItem}">#${genreNameList[genresItem]}</a>`)
-            .join(" , ");
-
-        quizItem.innerHTML = `
-            <h2 class="quiz-list-title">${index.title}</h2>
-            <!-- <div class="quiz-list-genres">${genresHtml}</div> 一般クイズではコメントアウトしない。-->
-            <p class="quiz-list-desc" style="display:none;">${index.description}</p>
-            `;
-
-        quizItem.onclick = () => {
-            location.href = `quiz.html?id=${index.id}`;
-        };
-
-        quizList.appendChild(quizItem);
+    if (isThereIsTopQuiz === false) {
+        quizItem.classList.add("top-quiz");
+        console.log(quizItem.className);
+        isThereIsTopQuiz = true;
     }
+
+    quizItem.innerHTML = `
+        <h2 class="quiz-list-title">${index.title}</h2>
+        `;
+
+    quizItem.onclick = () => {
+        location.href = `quiz.html?id=${index.id}`;
+    };
+
+    quizList.appendChild(quizItem);
 });
 
 // index.htmlにdiv追加で非学校単元用のリンクを作る。

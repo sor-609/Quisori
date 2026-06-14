@@ -3,7 +3,6 @@
     {
         id: ,
         title: "",
-        genres: [""],
         questions: [
             {
                 type: "",
@@ -19,7 +18,6 @@ const schoolUnitQuizzes = [
     {
         id: 1,
         title: "式の展開",
-        genres: ["math","JHMath"],
         questions: [
             {
                 type: "select",
