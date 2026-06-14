@@ -42,3 +42,9 @@ https://sor-609.github.io/Quisori/index.html
 - [ ] ユーザーアカウント
 - [ ] 学習進捗の記録
 - [ ] 他教科への対応
+
+## Archive Tags
+
+- archive-for-common-quizzes
+  - 2026-06-14
+  - quizごとのジャンル・説明文の表示機能が残っている中での最新版
