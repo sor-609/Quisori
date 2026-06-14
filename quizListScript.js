@@ -28,6 +28,7 @@ import { schoolUnitQuizzes } from './schoolUnitQuizData.js';
 
 const quizList = document.getElementById("quiz-list");
 
+let isThereIsTopQuiz = false;
 const params = new URLSearchParams(location.search);
 const displayGenre = params.get("genre");
 
@@ -36,6 +37,13 @@ schoolUnitQuizzes.forEach(index => {
 
     if (displayGenre === null || indexGenre.includes(displayGenre)) {
         const quizItem = document.createElement("div");
+        quizItem.classList.add("quiz-item");
+
+        if (isThereIsTopQuiz === false) {
+            quizItem.classList.add("top-quiz");
+            console.log(quizItem.className);
+            isThereIsTopQuiz = true;
+        }
 
         const genresHtml = index.genres
             .map(genresItem => `<a class="genre" href="index.html?genre=${genresItem}">#${genreNameList[genresItem]}</a>`)
