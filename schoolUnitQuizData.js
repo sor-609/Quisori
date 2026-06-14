@@ -17,11 +17,11 @@
 const schoolUnitQuizzes = [
     {
         id: 1,
-        title: "式の展開",
+        title: "式の展開（基礎）",
         questions: [
             {
                 type: "select",
-                question: "2x×(4x+3)=?",
+                question: "次の式を計算しなさい。\n2x×(4x+3)=?",
                 choices: ["8x+6","8x²+3","8x²+6x"],
                 correct: 2,
                 explanation: "2x×(4x+3)\n=2x×4x+2x×3\n=8x²+6x"

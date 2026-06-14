@@ -30,7 +30,7 @@ const quizTitleElement = document.getElementById("quiz-title");
 const quizDisplayElement = document.getElementById("quiz-display");
 const nextBtn = document.getElementById("next-btn");
 
-let currentQuestion = 0;
+let currentQuestionNumber = 0;
 let score = 0;
 
 const params = new URLSearchParams(location.search);
@@ -46,20 +46,20 @@ document.title = `Quisori ❘ クイズサイト ❘ ${quiz.title}`;
 showQuiz();
 
 // 1問分の処理
-// currentQuestion:何問目（-1された値） q:（currentQuestion）問目の問題情報 p:問題文（Q：～）
 function showQuiz() {
     quizDisplayElement.innerHTML = "";
     nextBtn.style.display = "none";
 
-    const q = questionsData[currentQuestion];
+    const currentQuetionData = questionsData[currentQuestionNumber];
 
     // 問題文
-    const p = document.createElement("p");
-    p.textContent = `${q.question}`;
-    quizDisplayElement.appendChild(p);
+    const currentQuestion = document.createElement("p");
+    currentQuestion.textContent = `${currentQuetionData.question}`;
+    quizDisplayElement.appendChild(currentQuestion);
+    currentQuestion.classList.add("current-question-text");
 
     // 選択肢ボタン
-    if (q.type === "select") {
+    if (currentQuetionData.type === "select") {
         select();
     }
 
@@ -67,11 +67,12 @@ function showQuiz() {
     explanation.classList.add("explanation");
     quizDisplayElement.appendChild(explanation);
 
-    // 「select」方式
+    // 「select」形式
     function select() {
-        q.choices.forEach(choice => {
+        currentQuetionData.choices.forEach(choice => {
             const btn = document.createElement("button");
             btn.textContent = choice;
+            btn.classList.add("select-btn")
 
             btn.onclick = () => {
                 const buttons = quizDisplayElement.querySelectorAll("button");
@@ -82,9 +83,9 @@ function showQuiz() {
 
                     // 押したボタンを緑or赤にする
                     if (b === btn) {
-                        if (choice === q.choices[q.correct]) {
+                        if (choice === currentQuetionData.choices[currentQuetionData.correct]) {
                             b.classList.add("correct");
-                            score++; // 正解数カウント+1
+                            score++;
                         } else {
                             b.classList.add("wrong");
                         }
@@ -93,13 +94,13 @@ function showQuiz() {
                     }
 
                     // 正解のボタンを緑にする
-                    if (b.textContent === q.choices[q.correct]) {
+                    if (b.textContent === currentQuetionData.choices[currentQuetionData.correct]) {
                         b.classList.add("correct");
                         b.classList.remove("unpressed");
                     }
                 })
 
-                explanation.textContent = q.explanation;
+                explanation.textContent = currentQuetionData.explanation;
                 explanation.classList.add("show");
 
                 nextBtn.style.display = "block";
@@ -112,9 +113,9 @@ function showQuiz() {
 
 // 「次へ」ボタン
 nextBtn.onclick = () => {
-    currentQuestion++;
+    currentQuestionNumber++;
 
-    if (currentQuestion < questionsData.length) {
+    if (currentQuestionNumber < questionsData.length) {
         showQuiz();
     } else {
         showResult();
