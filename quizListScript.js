@@ -50,9 +50,9 @@ schoolUnitQuizzes.forEach(index => {
             .join(" , ");
 
         quizItem.innerHTML = `
-            <h2 class="title">${index.title}</h2>
-            <!-- <div class="genre-list">${genresHtml}</div> 一般クイズではコメントアウトしない。-->
-            <p class="desc" style="display:none;">${index.description}</p>
+            <h2 class="quiz-list-title">${index.title}</h2>
+            <!-- <div class="quiz-list-genres">${genresHtml}</div> 一般クイズではコメントアウトしない。-->
+            <p class="quiz-list-desc" style="display:none;">${index.description}</p>
             `;
 
         quizItem.onclick = () => {
