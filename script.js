@@ -143,7 +143,6 @@ function showResult() {
 
 // 評価表示
 function getRank() {
-    return "C";
     if (score === questionsData.length) return "S";
     if (score >= questionsData.length * 0.8) return "A";
     if (score >= questionsData.length / 2) return "B";

@@ -1,5 +1,20 @@
-// 上から、クイズID、タイトル、問題情報（問題文、選択肢、答え、解説）。 追加する際は同じフォーマットで下に書く。
-// コピペ用：id: ,title: "",genres: [""],questions: [{type: "",question: "",choices: [""],correct: ,explanation: ""}]
+// 上から、ID、タイトル、問題情報（問題形式、問題文、選択肢、答え、解説）。 追加する際は同じフォーマットで下に書く。
+/* コピペ用：
+    {
+        id: ,
+        title: "",
+        genres: [""],
+        questions: [
+            {
+                type: "",
+                question: "",
+                choices: [""],
+                correct: ,
+                explanation: ""
+            }
+        ]
+    }
+*/
 const schoolUnitQuizzes = [
     {
         id: 1,
