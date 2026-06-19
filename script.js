@@ -42,12 +42,13 @@ const questionsData = quiz.questions;
 quizTitleElement.textContent = quiz.title;
 quizTitleElement.classList.add("quiz-title");
 document.title = `Quisori ❘ クイズサイト ❘ ${quiz.title}`;
-// quizId:URLの最後のid（クイズid） quiz:そのクイズの情報すべて titleData:そのクイズのタイトル questionsData:そのクイズの問題情報すべて
+
+await MathJax.startup.promise;
 
 showQuiz();
 
 // 1問分の処理
-function showQuiz() {
+async function showQuiz() {
     quizDisplayElement.innerHTML = "";
     nextBtn.style.display = "none";
     if (currentQuestionNumber === questionsData.length - 1) {
@@ -60,8 +61,8 @@ function showQuiz() {
     // 問題文
     const currentQuestion = document.createElement("p");
     currentQuestion.textContent = `${currentQuetionData.question}`;
-    MathJax.typesetPromise([currentQuestion]);
     quizDisplayElement.appendChild(currentQuestion);
+    await MathJax.typesetPromise([currentQuestion]);
     currentQuestion.classList.add("current-question-text");
 
     // 選択肢ボタン
@@ -71,17 +72,20 @@ function showQuiz() {
 
     const explanation = document.createElement("p");
     explanation.classList.add("explanation");
-    quizDisplayElement.appendChild(explanation);
+    
+    explanation.textContent = currentQuetionData.explanation;
+    await MathJax.typesetPromise([explanation]);
 
     // 「select」形式
-    function select() {
-        currentQuetionData.choices.forEach(choice => {
+    async function select() {
+        for await (const choice of currentQuetionData.choices) {
             const btn = document.createElement("button");
             btn.textContent = choice;
-            MathJax.typesetPromise([btn]);
+            quizDisplayElement.appendChild(btn);
+            await MathJax.typesetPromise([btn]);
             btn.classList.add("select-btn")
 
-            btn.onclick = () => {
+            btn.onclick = async () => {
                 const buttons = quizDisplayElement.querySelectorAll("button");
 
                 buttons.forEach((b, index) => {
@@ -102,16 +106,13 @@ function showQuiz() {
                         b.classList.add("correct");
                     }
                 })
-
-                explanation.textContent = currentQuetionData.explanation;
-                MathJax.typesetPromise([explanation]);
+                
+                quizDisplayElement.appendChild(explanation);
                 explanation.classList.add("show");
 
                 nextBtn.style.display = "block";
             }
-
-            quizDisplayElement.appendChild(btn);
-        })
+        }
     }
 }
 
