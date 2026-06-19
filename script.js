@@ -40,6 +40,7 @@ const quiz = schoolUnitQuizzes.find(a => a.id === quizId);
 const questionsData = quiz.questions;
 
 quizTitleElement.textContent = quiz.title;
+quizTitleElement.classList.add("quiz-title");
 document.title = `Quisori ❘ クイズサイト ❘ ${quiz.title}`;
 // quizId:URLの最後のid（クイズid） quiz:そのクイズの情報すべて titleData:そのクイズのタイトル questionsData:そのクイズの問題情報すべて
 
@@ -49,12 +50,17 @@ showQuiz();
 function showQuiz() {
     quizDisplayElement.innerHTML = "";
     nextBtn.style.display = "none";
+    if (currentQuestionNumber === questionsData.length - 1) {
+        nextBtn.textContent = "結果を表示する";
+        nextBtn.classList.add("next-btn--display-result");
+    }
 
     const currentQuetionData = questionsData[currentQuestionNumber];
 
     // 問題文
     const currentQuestion = document.createElement("p");
     currentQuestion.textContent = `${currentQuetionData.question}`;
+    MathJax.typesetPromise([currentQuestion]);
     quizDisplayElement.appendChild(currentQuestion);
     currentQuestion.classList.add("current-question-text");
 
@@ -72,14 +78,14 @@ function showQuiz() {
         currentQuetionData.choices.forEach(choice => {
             const btn = document.createElement("button");
             btn.textContent = choice;
+            MathJax.typesetPromise([btn]);
             btn.classList.add("select-btn")
 
             btn.onclick = () => {
                 const buttons = quizDisplayElement.querySelectorAll("button");
 
-                buttons.forEach(b => {
+                buttons.forEach((b, index) => {
                     b.disabled = true; // ボタンを押せなくする
-                    b.classList.add("unpressed");
 
                     // 押したボタンを緑or赤にする
                     if (b === btn) {
@@ -89,18 +95,16 @@ function showQuiz() {
                         } else {
                             b.classList.add("wrong");
                         }
-
-                        b.classList.remove("unpressed");
                     }
 
                     // 正解のボタンを緑にする
-                    if (b.textContent === currentQuetionData.choices[currentQuetionData.correct]) {
+                    if (index === currentQuetionData.correct) {
                         b.classList.add("correct");
-                        b.classList.remove("unpressed");
                     }
                 })
 
                 explanation.textContent = currentQuetionData.explanation;
+                MathJax.typesetPromise([explanation]);
                 explanation.classList.add("show");
 
                 nextBtn.style.display = "block";
