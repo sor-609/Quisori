@@ -34,9 +34,11 @@ let currentQuestionNumber = 0;
 let score = 0;
 
 const params = new URLSearchParams(location.search);
-const quizId = Number(params.get("id"));
+const id = params.get("id").split("_");
+const unitId = Number(id[0]);
+const quizId = Number(id[1]);
 
-const quiz = schoolUnitQuizzes.find(a => a.id === quizId);
+const quiz = schoolUnitQuizzes.find(a => a.id === unitId).quizzes.find(a => a.id === quizId);
 const questionsData = quiz.questions;
 
 quizTitleElement.textContent = quiz.title;
@@ -45,10 +47,10 @@ document.title = `Quisori ❘ クイズサイト ❘ ${quiz.title}`;
 
 await MathJax.startup.promise;
 
-showQuiz();
+showQuestion();
 
 // 1問分の処理
-async function showQuiz() {
+async function showQuestion() {
     quizDisplayElement.innerHTML = "";
     nextBtn.style.display = "none";
     if (currentQuestionNumber === questionsData.length - 1) {
@@ -121,7 +123,7 @@ nextBtn.onclick = () => {
     currentQuestionNumber++;
 
     if (currentQuestionNumber < questionsData.length) {
-        showQuiz();
+        showQuestion();
     } else {
         showResult();
     }
