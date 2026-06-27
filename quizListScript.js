@@ -29,7 +29,22 @@ const listsContainer = document.getElementById("lists-container");
 const unitList = document.getElementById("unit-list");
 const quizList = document.getElementById("quiz-list");
 
-let selectedUnitId = 0; // 0は非表示
+const mobileQuery = window.matchMedia("(max-width: 820px)")
+
+function isMobileView() {
+    return mobileQuery.matches;
+}
+
+function updateQuizListPosition(selectedUnit) {
+    if (isMobileView() && selectedUnit) {
+        selectedUnit.after(quizList);
+    }
+    else if (!isMobileView() && quizList.parentElement !== listsContainer) {
+        listsContainer.appendChild(quizList);
+    }
+}
+
+let selectedUnitId = 0;
 
 schoolUnitQuizzes.forEach((unitIndex, index) => {
 
@@ -40,9 +55,8 @@ schoolUnitQuizzes.forEach((unitIndex, index) => {
     unitItem.innerHTML = `
         <h2 class="unit-item-title">${unitIndex.unitName}</h2>
 
-        <svg class="unit-item-arrow" viewBox="0 0 20 20">
-            <polyline class="unit-item-arrow-line top" points="10,3 10,17" />
-            <polyline class="unit-item-arrow-line bottom" points="10,3 10,17" />
+        <svg class="unit-item-arrow" viewBox="0 0 40 20">
+            <polyline class="unit-item-arrow-line" points="30,3 30,17" fill="none" />
         </svg>
         `;
 
@@ -57,37 +71,41 @@ schoolUnitQuizzes.forEach((unitIndex, index) => {
             showQuizzes();
         } else {
             selectedUnitId = 0;
+            updateQuizListPosition(null);
         }
         
         document.querySelectorAll(".unit-item").forEach(item => {
             item.classList.remove("selected");
 
-            const unitArrowTop = item.querySelector(".unit-item-arrow-line.top");
-            unitArrowTop.setAttribute(
-                "points", "10,3 10,17"
-            );
-            const unitArrowBottom = item.querySelector(".unit-item-arrow-line.bottom");
-            unitArrowBottom.setAttribute(
-                "points", "10,3 10,17"
+            const unitArrow = item.querySelector(".unit-item-arrow-line");
+            unitArrow.setAttribute(
+                "points", "30,3 30,17"
             );
         });
 
         const selectedUnit = document.querySelector(`[data-id="${selectedUnitId}"]`);
         selectedUnit?.classList.add("selected");
 
-        document.documentElement.style.setProperty(
-            "--quiz-list-offset",
-            `${selectedUnit.getBoundingClientRect().top - listsContainer.getBoundingClientRect().top}px`
-        );
+        if (selectedUnit) {
+            updateQuizListPosition(selectedUnit);
 
-        const selectedUnitArrowTop = selectedUnit.querySelector(".unit-item-arrow-line.top");
-        selectedUnitArrowTop.setAttribute(
-            "points", "5,5 10,10"
-        );
-        const selectedUnitArrowBottom = selectedUnit.querySelector(".unit-item-arrow-line.bottom");
-        selectedUnitArrowBottom.setAttribute(
-            "points", "5,15 10,10"
-        );
+            document.documentElement.style.setProperty(
+                "--quiz-list-offset",
+                `${selectedUnit.getBoundingClientRect().top - listsContainer.getBoundingClientRect().top}px`
+            );
+
+            if (isMobileView()) {
+                const selectedUnitArrow = selectedUnit.querySelector(".unit-item-arrow-line");
+                selectedUnitArrow.setAttribute(
+                    "points", "20,10 25,15 30,10"
+                );
+            } else {
+                const selectedUnitArrow = selectedUnit.querySelector(".unit-item-arrow-line");
+                selectedUnitArrow.setAttribute(
+                    "points", "25,5 30,10 25,15"
+                );
+            }
+        }
     };
 
     function showQuizzes() {
